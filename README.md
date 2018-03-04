@@ -8,10 +8,13 @@ Wouldn't it be nice to be able to keep track of your remaining productive time i
 
 The purpose of this is to allow you to quantify the hours left in your day quickly by simply taking glance at the display. 
 
-The application is written in C# under window service application project. After installation this add-on will run as a background proces with mininal load.
+The application is written in C# under window service application project. After installation this add-on will run as a background process with mininal load.
 
 ## Installation
-Install using 
+Install using the command line Visual Studio Dev tool.
+1. Navigate to the DayActive.Engine.App.exe location.
+2. In VS Command line Dev tool type "installutil DayActive.Engine.App.exe"
+3. Start the DayActive process in Service Manager.
 
 ## Features & Usages
 **Version 1.0.0**
