@@ -1,4 +1,4 @@
-# ss-engine-gamesense-custom-apps
+# DayActive
 Collection of custom apps built for SteelSeries Engine Gamesense 
 
 ## Table of Contents
