@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DayActive.Engine.App.Helpers
 {
@@ -20,8 +16,8 @@ namespace DayActive.Engine.App.Helpers
             catch (Exception ex)
             {
                 jsonStringMousePort = null;
-                string currentMethodName = Helpers.ErrorHandling.GetCurrentMethodName();
-                Helpers.ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                string currentMethodName = ErrorHandling.GetCurrentMethodName();
+                ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
             }
             return jsonStringMousePort;
         }

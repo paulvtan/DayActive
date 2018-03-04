@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DayActive.Engine.App.Helpers
 {
@@ -20,7 +17,7 @@ namespace DayActive.Engine.App.Helpers
                 writer.WriteLine("Error in function: " + errorMessage);
                 writer.WriteLine();
                 writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
-                                 "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
+                                 "" + Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
             }
 

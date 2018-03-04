@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
 
 namespace DayActive.Engine.App
 {
@@ -22,6 +13,8 @@ namespace DayActive.Engine.App
         {
             // TODO: Add code here to start your service.
             Helpers.Connector.ConnectToMouseServer();
+            Helpers.DayActiveController.RegisterGameMetaData();
+            Helpers.DayActiveController.BindGameEvent();
             Helpers.DayActiveController.StartMonitoringTimer();
         }
 
