@@ -20,6 +20,6 @@ namespace DayActive.Engine.App.Models
     public class Data
     {
         [JsonProperty(PropertyName = "value")]
-        public double Value { get; set; }
+        public string Value { get; set; }
     }
 }

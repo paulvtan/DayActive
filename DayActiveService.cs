@@ -1,4 +1,5 @@
 ﻿using System.ServiceProcess;
+using DayActive.Engine.App.Helpers;
 
 namespace DayActive.Engine.App
 {
@@ -12,10 +13,12 @@ namespace DayActive.Engine.App
         protected override void OnStart(string[] args)
         {
             // TODO: Add code here to start your service.
-            Helpers.Connector.ConnectToMouseServer();
-            Helpers.DayActiveController.RegisterGameMetaData();
-            Helpers.DayActiveController.BindGameEvent();
-            Helpers.DayActiveController.StartMonitoringTimer();
+            Connector.ConnectToMouseServer();
+            GameDataObject gameDataObject = new GameDataObject();
+            DayActiveController.RegisterGameMetaData(gameDataObject);
+            DayActiveController.BindGameEvent(gameDataObject);
+            DayActiveController.StartGameHeartBeatTimer();
+            DayActiveController.StartMonitoringTimer(gameDataObject);
         }
 
         protected override void OnStop()

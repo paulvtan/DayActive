@@ -61,6 +61,7 @@
     <Compile Include="Helpers\DayActiveController.cs" />
     <Compile Include="Helpers\ErrorHandling.cs" />
     <Compile Include="Helpers\FileProcessing.cs" />
+    <Compile Include="Helpers\GameDataObject.cs" />
     <Compile Include="Models\BindGameEvent.cs" />
     <Compile Include="Models\DataPayLoad.cs" />
     <Compile Include="Models\GameHeartBeat.cs" />

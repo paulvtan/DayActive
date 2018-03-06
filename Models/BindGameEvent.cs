@@ -30,6 +30,8 @@ namespace DayActive.Engine.App.Models
 
     public class Datas
     {
+        [JsonProperty(PropertyName = "length-millis")]
+        public int LengthMillis { get; set; }
         [JsonProperty(PropertyName = "has-text")]
         public bool HasText { get; set; }
         [JsonProperty(PropertyName = "prefix")]
@@ -39,6 +41,6 @@ namespace DayActive.Engine.App.Models
         [JsonProperty(PropertyName = "suffix")]
         public string Suffix { get; set; }
         [JsonProperty(PropertyName = "repeats")]
-        public  bool Repeats { get; set; }
+        public bool Repeats { get; set; }
     }
 }
