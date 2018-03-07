@@ -21,7 +21,7 @@ Install using the command line Visual Studio Dev tool.
 1. Automatically display time remaining out of 24 hours-local time in percentage.
 
 **Version 1.1.0**
-1. Added an set up wizard for a simple installation/uninstallation process.
+1. Added an setup wizard for a simple installation/uninstallation process.
 
 ## Contributing
 
