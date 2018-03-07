@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayActive.Engine.App", "DayActive.Engine.App.csproj", "{3F35B06C-0AC1-47B7-9B59-E0CEEBCF9F1E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DayActiveSetUp", "..\DayActiveSetUp\DayActiveSetUp.vdproj", "{6753D502-2A08-42A6-ADAB-EFE8D061F448}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{3F35B06C-0AC1-47B7-9B59-E0CEEBCF9F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F35B06C-0AC1-47B7-9B59-E0CEEBCF9F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F35B06C-0AC1-47B7-9B59-E0CEEBCF9F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6753D502-2A08-42A6-ADAB-EFE8D061F448}.Debug|Any CPU.ActiveCfg = Debug
+		{6753D502-2A08-42A6-ADAB-EFE8D061F448}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
