@@ -13,8 +13,9 @@ namespace DayActive.Engine.App
         protected override void OnStart(string[] args)
         {
             // TODO: Add code here to start your service.
-            Connector.ConnectToMouseServer();
+            Connector.EstablishConnection();
             GameDataObject gameDataObject = new GameDataObject();
+            DayActiveController.DisplayWelcomeScreenAsync(gameDataObject);
             DayActiveController.RegisterGameMetaData(gameDataObject);
             DayActiveController.BindGameEvent(gameDataObject);
             DayActiveController.StartGameHeartBeatTimer();

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 
 namespace DayActive.Engine.App.Helpers
@@ -30,6 +31,19 @@ namespace DayActive.Engine.App.Helpers
             StackFrame sf = st.GetFrame(1);
 
             return sf.GetMethod().Name;
+        }
+
+        public static void DebugObject(HttpResponseMessage keepAliveResponse)
+        {
+            string filePath = @"C:\ProgramData\SteelSeries\SteelSeries Engine 3\Error.txt";
+
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine("Response Header: " + keepAliveResponse.Content.Headers);
+                writer.WriteLine();
+                writer.WriteLine(Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
+                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+            }
         }
     }
 }

@@ -11,9 +11,11 @@ namespace DayActive.Engine.App.Helpers
     {
         public BindGameEvent GameEventHandler { get; set; }
         public GameMetaData GameMetaData { get; set; }
+        public DataPayLoad WelcomeDataPayLoad { get; set; }
         public GameDataObject()
         {
             CreateGameMetaData();
+            CreateWelcomeEventDataPayLoad();
             CreateGameEventHandler();
         }
 
@@ -26,6 +28,27 @@ namespace DayActive.Engine.App.Helpers
                     Game = "DAYACTIVE",
                     GameDisplayName = "DayActive",
                     IconColorId = 5
+                };
+            }
+            catch (Exception ex)
+            {
+                string currentMethodName = ErrorHandling.GetCurrentMethodName();
+                ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+            }
+        }
+
+        public void CreateWelcomeEventDataPayLoad()
+        {
+            try
+            {
+                WelcomeDataPayLoad = new DataPayLoad()
+                {
+                    Game = "DAYACTIVE",
+                    Event = "WELCOME",
+                    Data = new Data()
+                    {
+                        Value = "DayActive"
+                    }
                 };
             }
             catch (Exception ex)
