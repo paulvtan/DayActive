@@ -19,3 +19,11 @@ Affected parameters are:
 Removing EventLog source DayActiveService.
 Service DayActiveService is being removed from the system...
 Service DayActiveService was successfully removed from the system.
+Uninstalling assembly 'C:\Users\Paul's Workstation\source\repos\DayActive\bin\Release\DayActive.Engine.App.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\Paul's Workstation\source\repos\DayActive\bin\Release\DayActive.Engine.App.InstallLog
+   assemblypath = C:\Users\Paul's Workstation\source\repos\DayActive\bin\Release\DayActive.Engine.App.exe
+Removing EventLog source DayActiveService.
+Service DayActiveService is being removed from the system...
+Service DayActiveService was successfully removed from the system.
