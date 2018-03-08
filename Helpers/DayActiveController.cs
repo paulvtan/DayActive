@@ -15,6 +15,7 @@ namespace DayActive.Engine.App.Helpers
     public static class DayActiveController
     {
         public static System.Threading.Timer _timer { get; set; }
+        public static System.Timers.Timer GameHeartBeatTimer;
         public static DataPayLoad DataPayLoad;
         public static async void RegisterGameMetaData(GameDataObject gameDataObject)
         {
@@ -104,6 +105,7 @@ namespace DayActive.Engine.App.Helpers
         {
             try
             {
+                Connector.BindWelcomeEventAsync();
                 HttpResponseMessage response = await Connector.Client.PostAsJsonAsync(
                     "game_event", gameDataObject.WelcomeDataPayLoad);
             }
@@ -118,10 +120,10 @@ namespace DayActive.Engine.App.Helpers
         {
             try
             {
-                System.Timers.Timer gameHeartBeatTimer = new System.Timers.Timer();
-                gameHeartBeatTimer.Interval = 10000;
-                gameHeartBeatTimer.Elapsed += RefreshScreen;
-                gameHeartBeatTimer.Start();
+                GameHeartBeatTimer = new System.Timers.Timer();
+                GameHeartBeatTimer.Interval = 10000;
+                GameHeartBeatTimer.Elapsed += RefreshScreen;
+                GameHeartBeatTimer.Start();
             }
             catch (Exception ex)
             {
@@ -146,9 +148,15 @@ namespace DayActive.Engine.App.Helpers
             }
             catch (Exception ex)
             {
+                GameHeartBeatTimer.Stop();
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
-                Connector.EstablishConnection();
+
+                if (Connector.EstablishConnection())
+                {
+                    StartGameHeartBeatTimer();
+                    CalculateTimeLeft();
+                }
             }
         }
     }

@@ -73,7 +73,7 @@ namespace DayActive.Engine.App.Helpers
 
                 HttpResponseMessage response = await Connector.Client.PostAsJsonAsync(
                     "bind_game_event", gameEventHandler);
-
+                ErrorHandling.DebugObject(JsonConvert.SerializeObject(gameEventHandler));
             }
             catch (Exception ex)
             {
@@ -84,7 +84,7 @@ namespace DayActive.Engine.App.Helpers
 
         //This method trys to run a welcome screen. Until it is passed run the welcome screen -> send the data the first time. 
         //If fails, wait sometime and call connect to mouse server again.
-        public static void EstablishConnection()
+        public static bool EstablishConnection()
         {
             try
             {
@@ -99,15 +99,16 @@ namespace DayActive.Engine.App.Helpers
                     System.Threading.Thread.Sleep(10000);
                 }
                 ConnectToMouseServer();
-                BindWelcomeEventAsync();
 
-
+                return true;
             }
             catch (Exception ex)
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
             }
+
+            return false;
         }
     }
 }

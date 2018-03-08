@@ -33,13 +33,13 @@ namespace DayActive.Engine.App.Helpers
             return sf.GetMethod().Name;
         }
 
-        public static void DebugObject(HttpResponseMessage keepAliveResponse)
+        public static void DebugObject(string jsonString)
         {
             string filePath = @"C:\ProgramData\SteelSeries\SteelSeries Engine 3\Error.txt";
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                writer.WriteLine("Response Header: " + keepAliveResponse.Content.Headers);
+                writer.WriteLine("Json Payload: " + jsonString);
                 writer.WriteLine();
                 writer.WriteLine(Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
