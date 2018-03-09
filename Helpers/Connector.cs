@@ -51,7 +51,7 @@ namespace DayActive.Engine.App.Helpers
         }
 
 
-        public static bool EstablishConnection()
+        public static bool EstablishConnection(GameDataObject gameDataObject)
         {
             try
             {
@@ -66,13 +66,14 @@ namespace DayActive.Engine.App.Helpers
                     System.Threading.Thread.Sleep(10000);
                 }
                 ConnectToMouseServer();
-
+                DayActiveController.DisplayWelcomeScreenAsync(gameDataObject);
                 return true;
             }
             catch (Exception ex)
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                EstablishConnection(gameDataObject);
             }
 
             return false;

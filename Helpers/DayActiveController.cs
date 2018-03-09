@@ -17,10 +17,12 @@ namespace DayActive.Engine.App.Helpers
         public static System.Threading.Timer _timer { get; set; }
         public static System.Timers.Timer GameHeartBeatTimer;
         public static DataPayLoad DataPayLoad;
+        public static GameDataObject GameDataObject;
         public static async void RegisterGameMetaData(GameDataObject gameDataObject)
         {
             try
             {
+                GameDataObject = gameDataObject;
                 HttpResponseMessage response = await Connector.Client.PostAsJsonAsync(
                     "game_metadata", gameDataObject.GameMetaData);
                 response.EnsureSuccessStatusCode();
@@ -29,6 +31,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection(gameDataObject))
+                {
+                    RegisterGameMetaData(gameDataObject);
+                }
             }
         }
 
@@ -45,6 +51,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection(gameDataObject))
+                {
+                    BindGameEvent(gameDataObject);
+                }
             }
         }
 
@@ -113,6 +123,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection(gameDataObject))
+                {
+                    DisplayWelcomeScreenAsync(gameDataObject);
+                }
             }
         }
 
@@ -152,7 +166,7 @@ namespace DayActive.Engine.App.Helpers
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
 
-                if (Connector.EstablishConnection())
+                if (Connector.EstablishConnection(GameDataObject))
                 {
                     StartGameHeartBeatTimer();
                     CalculateTimeLeft();

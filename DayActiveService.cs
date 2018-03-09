@@ -17,8 +17,7 @@ namespace DayActive.Engine.App
             // TODO: Add code here to start your service.
             FileProcessing.ImportSettting();
             GameDataObject gameDataObject = new GameDataObject();
-            Connector.EstablishConnection();
-            DayActiveController.DisplayWelcomeScreenAsync(gameDataObject);
+            Connector.EstablishConnection(gameDataObject);
             DayActiveController.RegisterGameMetaData(gameDataObject);
             DayActiveController.BindGameEvent(gameDataObject);
             DayActiveController.StartGameHeartBeatTimer();
