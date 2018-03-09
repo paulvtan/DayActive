@@ -42,6 +42,7 @@
             this.serviceInstaller1.ServiceName = "DayActiveService";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             this.serviceInstaller1.DelayedAutoStart = true;
+
             // 
             // ProjectInstaller
             // 
