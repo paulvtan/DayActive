@@ -10,6 +10,13 @@ The purpose of this is to allow you to quantify the hours left in your day quick
 
 The application is written in C# under window service application project. After installation this add-on will run as a background process with mininal load.
 
+<p>
+<img src="img/1.jpg"  width="250"/>
+<img src="img/2.jpg"  width="250"/>
+</p>
+<img src="img/DayActiveDemoGIF.gif"  width="400"/>
+
+
 ## Installation
 Install using the command line Visual Studio Dev tool.
 1. Navigate to the DayActive.Engine.App.exe location.
