@@ -23,12 +23,25 @@ Install using the command line Visual Studio Dev tool.
 2. In VS Command line Dev tool type "installutil DayActive.Engine.App.exe"
 3. Start the DayActive process in Service Manager.
 
+OR
+
+- Simply install using the installer in release section.
+
+*For the app to run, SteelSeries Engine 3 is required.
+
 ## Features & Usages
 **Version 1.0.0**
 1. Automatically display time remaining out of 24 hours-local time in percentage.
 
 **Version 1.1.0**
 1. Added an setup wizard for a simple installation/uninstallation process.
+
+**Version 2.0.0**
+1. Auto recovery if exception is thrown. 
+2. First launch intro animation added.
+
+**Version 2.1.0**
+1. Bug fix - after device restart delay program lauch to minimize POST request error.
 
 ## Contributing
 
