@@ -21,7 +21,7 @@ namespace DayActive.Engine.App.Helpers
             try
             {
                 System.IO.StreamReader file =
-                    new System.IO.StreamReader(@"C:\ProgramData\SteelSeries\SteelSeries Engine 3\coreProps.json");
+                    new System.IO.StreamReader(FileProcessing.UserSetting.CorePropPath);
                 string jsonStringMousePort = file.ReadLine();
                 var jsonObjectMousePort = JsonConvert.DeserializeObject<JsonObjectMousePort>(jsonStringMousePort);
                 Client.BaseAddress = new Uri("http://" + jsonObjectMousePort.Address + "/");

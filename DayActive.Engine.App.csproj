@@ -67,6 +67,7 @@
     <Compile Include="Models\GameHeartBeat.cs" />
     <Compile Include="Models\GameMetaData.cs" />
     <Compile Include="Models\JsonObjectMousePort.cs" />
+    <Compile Include="Models\UserSetting.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

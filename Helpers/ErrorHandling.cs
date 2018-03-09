@@ -9,18 +9,21 @@ namespace DayActive.Engine.App.Helpers
 {
     public static class ErrorHandling
     {
+        private static string ErrorFilePath = @"C:\ProgramData\SteelSeries\SteelSeries Engine 3\Error.txt";
         public static void LogErrorToTxtFile(Exception ex, string errorMessage)
         {
-            string filePath = @"C:\ProgramData\SteelSeries\SteelSeries Engine 3\Error.txt";
-
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            if (FileProcessing.UserSetting.DebugModeOn)
             {
-                writer.WriteLine("Error in function: " + errorMessage);
-                writer.WriteLine();
-                writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
-                                 "" + Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
-                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+                using (StreamWriter writer = new StreamWriter(ErrorFilePath, true))
+                {
+                    writer.WriteLine("Error in function: " + errorMessage);
+                    writer.WriteLine();
+                    writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
+                                     "" + Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+                }
             }
+
 
         }
 
@@ -35,14 +38,15 @@ namespace DayActive.Engine.App.Helpers
 
         public static void DebugObject(string jsonString)
         {
-            string filePath = @"C:\ProgramData\SteelSeries\SteelSeries Engine 3\Error.txt";
-
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            if (FileProcessing.UserSetting.DebugModeOn)
             {
-                writer.WriteLine("Json Payload: " + jsonString);
-                writer.WriteLine();
-                writer.WriteLine(Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
-                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+                using (StreamWriter writer = new StreamWriter(ErrorFilePath, true))
+                {
+                    writer.WriteLine("Json Payload: " + jsonString);
+                    writer.WriteLine();
+                    writer.WriteLine(Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+                }
             }
         }
     }
