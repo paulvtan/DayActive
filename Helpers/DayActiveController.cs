@@ -66,7 +66,7 @@ namespace DayActive.Engine.App.Helpers
                         CalculateTimeLeft();
                     },
                     null,
-                    TimeSpan.FromSeconds(5),
+                    TimeSpan.FromSeconds(8),
                     TimeSpan.FromSeconds(60)
                 );
 
@@ -113,7 +113,7 @@ namespace DayActive.Engine.App.Helpers
         {
             try
             {
-                Connector.BindWelcomeEventAsync();
+                await Connector.BindWelcomeEventAsync(gameDataObject.WelcomeEventHandler);
                 HttpResponseMessage response = await Connector.Client.PostAsJsonAsync(
                     "game_event", gameDataObject.WelcomeDataPayLoad);
             }

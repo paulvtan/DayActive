@@ -36,44 +36,12 @@ namespace DayActive.Engine.App.Helpers
             }
         }
 
-        public static async void BindWelcomeEventAsync()
+        public static async Task BindWelcomeEventAsync(BindGameEvent welcomeEventHandler)
         {
             try
             {
-                List<Datas> datas = new List<Datas>()
-                {
-                    new Datas()
-                    {
-                        HasText = true,
-                        PreFix = "",
-                        IconId = 15,
-                        Suffix = "",
-                        Repeats = true
-                    }
-                };
-
-                List<Handlers> handlers = new List<Handlers>()
-                {
-                    new Handlers()
-                    {
-                        DeviceType = "screened",
-                        Zone = "one",
-                        Mode = "screen",
-                        Datas = datas
-                    }
-                };
-
-                //Bind Handler
-                BindGameEvent gameEventHandler = new BindGameEvent()
-                {
-                    Game = "DAYACTIVE",
-                    Event = "WELCOME",
-                    Handlers = handlers
-                };
-
                 HttpResponseMessage response = await Connector.Client.PostAsJsonAsync(
-                    "bind_game_event", gameEventHandler);
-                ErrorHandling.DebugObject(JsonConvert.SerializeObject(gameEventHandler));
+                    "bind_game_event", welcomeEventHandler);
             }
             catch (Exception ex)
             {
@@ -82,8 +50,7 @@ namespace DayActive.Engine.App.Helpers
             }
         }
 
-        //This method trys to run a welcome screen. Until it is passed run the welcome screen -> send the data the first time. 
-        //If fails, wait sometime and call connect to mouse server again.
+
         public static bool EstablishConnection()
         {
             try

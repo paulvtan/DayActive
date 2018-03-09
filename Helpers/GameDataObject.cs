@@ -10,11 +10,13 @@ namespace DayActive.Engine.App.Helpers
     public class GameDataObject
     {
         public BindGameEvent GameEventHandler { get; set; }
+        public BindGameEvent WelcomeEventHandler { get; set; }
         public GameMetaData GameMetaData { get; set; }
         public DataPayLoad WelcomeDataPayLoad { get; set; }
         public GameDataObject()
         {
             CreateGameMetaData();
+            CreateWelcomeEventHandler();
             CreateWelcomeEventDataPayLoad();
             CreateGameEventHandler();
         }
@@ -37,6 +39,145 @@ namespace DayActive.Engine.App.Helpers
             }
         }
 
+        public void CreateWelcomeEventHandler()
+        {
+            try
+            {
+                List<Datas> datas = new List<Datas>()
+                {
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "D",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "Da",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "Day",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayA",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayAc",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayAct",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayActi",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayActiv",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayActive",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayActive",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 500
+                    },
+                    new Datas()
+                    {
+                        HasText = true,
+                        PreFix = "DayActive",
+                        IconId = 15,
+                        Suffix = "",
+                        LengthMillis = 1000
+                    },
+
+                };
+
+                List<Handlers> handlers = new List<Handlers>()
+                {
+                    new Handlers()
+                    {
+                        DeviceType = "screened",
+                        Zone = "one",
+                        Mode = "screen",
+                        Datas = datas
+                    }
+                };
+
+                //Bind Handler
+                WelcomeEventHandler = new BindGameEvent()
+                {
+                    Game = "DAYACTIVE",
+                    Event = "WELCOME",
+                    Handlers = handlers
+                };
+            }
+            catch (Exception ex)
+            {
+                string currentMethodName = ErrorHandling.GetCurrentMethodName();
+                ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+            }
+        }
+
         public void CreateWelcomeEventDataPayLoad()
         {
             try
@@ -47,7 +188,7 @@ namespace DayActive.Engine.App.Helpers
                     Event = "WELCOME",
                     Data = new Data()
                     {
-                        Value = "DayActive"
+                        Value = ""
                     }
                 };
             }
