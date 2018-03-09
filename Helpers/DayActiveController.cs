@@ -29,6 +29,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection())
+                {
+                    RegisterGameMetaData(gameDataObject);
+                }
             }
         }
 
@@ -45,6 +49,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection())
+                {
+                    BindGameEvent(gameDataObject);
+                }
             }
         }
 
@@ -113,6 +121,10 @@ namespace DayActive.Engine.App.Helpers
             {
                 string currentMethodName = ErrorHandling.GetCurrentMethodName();
                 ErrorHandling.LogErrorToTxtFile(ex, currentMethodName);
+                if (Connector.EstablishConnection())
+                {
+                    DisplayWelcomeScreenAsync(gameDataObject);
+                }
             }
         }
 
